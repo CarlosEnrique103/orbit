@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   root 'html_pages#home'
   get 'about', to: 'html_pages#about'
