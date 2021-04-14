@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get 'contact', to: 'html_pages#contact'
   get 'help', to: 'html_pages#help'
   get 'signup', to: 'users#new'
+  resources :users
 end

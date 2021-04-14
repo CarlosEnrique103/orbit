@@ -5,10 +5,17 @@
   Site wide layout & pages 
 ****************************/
 
+/* Debug styling */
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 /* Variables */
 
 $light-gray: #777;
-
 
 /*  Global Styles */
 body {
@@ -83,7 +90,7 @@ p {
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
-  
+
   &:hover {
     color: #fff;
     text-decoration: none;
@@ -107,5 +114,32 @@ p {
   ul {
     display: flex;
     gap: 10px;
+  }
+}
+
+/* Misc */
+
+.debug_dump {
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
+/* Profile */
+.container-profile {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+
+  h1 {
+    font-size: 24px;
+  }
+
+  aside {
+    width: 300px;
+  }
+
+  main {
+    flex: 1;
   }
 }
