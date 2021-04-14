@@ -16,6 +16,7 @@
 /* Variables */
 
 $light-gray: #777;
+$state-danger-text: #fa1909;
 
 /*  Global Styles */
 body {
@@ -141,5 +142,45 @@ p {
 
   main {
     flex: 1;
+  }
+}
+
+
+/* forms */
+.container-form {
+  width: 360px;
+  margin: 40px auto;
+}
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+input {
+  height: auto !important;
+}
+
+/*  Errors messages */
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+    li {
+      list-style:square;
+    }
+  }
+}
+
+.field_with_errors {
+  // @extend .has_error;
+  .form_control {
+    color: $state-danger-text;
   }
 }
