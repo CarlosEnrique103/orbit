@@ -148,7 +148,7 @@ p {
 
 /* forms */
 .container-form {
-  width: 360px;
+  width: 400px;
   margin: 40px auto;
 }
 
@@ -183,4 +183,12 @@ input {
   .form_control {
     color: $state-danger-text;
   }
+}
+
+
+/* Sessions */
+
+.container-login {
+  width: 400px;
+  margin: 40px auto;
 }

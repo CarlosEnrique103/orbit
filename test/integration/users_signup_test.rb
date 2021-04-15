@@ -21,5 +21,8 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                          password: 'juancarlos123',
                                          password_confirmation: 'juancarlos123' } }
     end
+    follow_redirect!
+    assert_template 'users/show'
+    assert logged_in?
   end
 end
