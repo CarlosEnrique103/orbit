@@ -192,3 +192,29 @@ input {
   width: 400px;
   margin: 40px auto;
 }
+
+/* User */
+
+.list-users {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  li {
+    width: 250px;
+    min-width: 200px;
+    padding: 10px;
+    border: 1px solid #ccc6;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+
+    img {
+      border-radius: 50%;
+    }
+
+
+  }
+}

@@ -15,4 +15,14 @@ module SessionsHelper
     session.delete(:user_id)
     @current_user = nil
   end
+
+  def redirect_back_or(default)
+    redirect_to(session[:forwarding_path] || default)
+    session.delete(:forwarding_path)
+  end
+
+  def store_location
+    puts request
+    session[:forwarding_path] = request.original_url if request.get?
+  end
 end
