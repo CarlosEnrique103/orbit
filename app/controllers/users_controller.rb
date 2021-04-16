@@ -2,11 +2,12 @@
 
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
-  before_action :logged_in_user, only: %i[index edit update]
+  before_action :logged_in_user, only: %i[show index edit update destroy]
   before_action :correct_user, only: %i[edit update]
+  before_action :admin_user, only: :destroy
 
   def index
-    @users = User.all
+    @users = User.paginate(page: params[:page])
   end
 
   def show; end
@@ -37,6 +38,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user.destroy
+    flash[:success] = 'User deleted'
+    redirect_to users_path
+  end
+
   private
 
   def set_user
@@ -52,7 +59,11 @@ class UsersController < ApplicationController
   end
 
   def correct_user
-    redirect_to root_path unless @user == current_user
+    redirect_to root_path unless current_user?(@user)
+  end
+
+  def admin_user
+    redirect_to root_path unless current_user.admin?
   end
 
   def user_params

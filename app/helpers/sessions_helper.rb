@@ -25,4 +25,8 @@ module SessionsHelper
     puts request
     session[:forwarding_path] = request.original_url if request.get?
   end
+
+  def current_user?(user)
+    user && user == current_user
+  end
 end
