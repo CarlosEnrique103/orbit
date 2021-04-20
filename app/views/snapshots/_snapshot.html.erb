@@ -1,0 +1,10 @@
+<li id="snapshot-<%= snapshot.id %>">
+  <%= link_to gravatar_for(snapshot.user), snapshot.user %>
+  <div class="content">
+    <span class="user"><%= link_to snapshot.user.name, snapshot.user %></span>
+    <span class="content"><%= snapshot.content %></span>
+    <span class="timestamp">
+      Posted <%= time_ago_in_words(snapshot.created_at)%> ago.
+    </span>
+  </div>
+</li>

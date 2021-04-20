@@ -13,3 +13,10 @@ User.create!(name: 'mabel',
   password = '123456'
   User.create!(name: name, email: email, password: password, password_confirmation: password)
 end
+
+users = User.order(:created_at).take(5)
+
+20.times do
+  content = Faker::Lorem.sentence
+  users.each { |user| user.snapshots.create!(content: content) }
+end

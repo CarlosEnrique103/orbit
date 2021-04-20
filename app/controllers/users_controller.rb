@@ -10,7 +10,9 @@ class UsersController < ApplicationController
     @users = User.paginate(page: params[:page])
   end
 
-  def show; end
+  def show 
+    @snapshots = @user.snapshots.paginate(page: params[:page])
+  end
 
   def new
     @user = User.new

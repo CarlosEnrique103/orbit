@@ -4,10 +4,10 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   def setup
-    @user = User.new( name: 'Test User',
-                      email: 'test@example.com',
-                      password: 'test123456',
-                      password_confirmation: 'test123456')
+    @user = User.new(name: 'Test User',
+                     email: 'test@example.com',
+                     password: 'test123456',
+                     password_confirmation: 'test123456')
   end
 
   test 'Should be valid' do
@@ -64,5 +64,13 @@ class UserTest < ActiveSupport::TestCase
   test 'should have a minimum length' do
     @user.password = @user.password_confirmation = 'a' * 5
     assert_not @user.valid?
+  end
+
+  test 'should be descending num of snapshot' do
+    @user.save
+    @user.snapshots.create!(content: 'Great job.')
+    assert_difference 'Snapshot.count', -1 do
+      @user.destroy
+    end
   end
 end

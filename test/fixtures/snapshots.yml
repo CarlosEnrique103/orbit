@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+snapshot001:
+  content: 'Great job on the new user interface.'
+  created_at: <%= 10.minutes.ago %>
+  user: carlos
+
+snapshot002:
+  content: 'The new signup method work perfectly.'
+  created_at: <%= 10.months.ago %>
+  user: carlos
+
+most_recent:
+  content: 'Well done on the client demo today.'
+  created_at: <%= Time.zone.now %>
+  user: carlos
