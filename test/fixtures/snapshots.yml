@@ -14,3 +14,12 @@ most_recent:
   content: 'Well done on the client demo today.'
   created_at: <%= Time.zone.now %>
   user: carlos
+
+<% 40.times do |n| %>
+
+snapshot-<%= n %>:
+  content: <%= Faker::Lorem.sentence %>
+  created_at: <%= 5.days.ago %>
+  user: carlos
+<% end %>
+
