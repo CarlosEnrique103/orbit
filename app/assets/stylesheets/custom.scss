@@ -247,3 +247,15 @@ input {
     }
   }
 }
+
+.snapshots-home {
+  display: flex;
+  justify-content: space-between;
+  aside {
+    width: 50%;
+  }
+
+  div {
+    flex: 1;
+  }
+}

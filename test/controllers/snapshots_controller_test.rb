@@ -18,4 +18,13 @@ class SnapshotsControllerTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to login_path
   end
+
+  test 'should redirect destroy for wrong snapshot' do
+    log_in_as(users(:carlos))
+    snapshot = snapshots(:snapshot006)
+    assert_no_difference 'Snapshot.count' do
+      delete snapshot_path(snapshot)
+    end
+    assert_redirected_to root_path
+  end
 end

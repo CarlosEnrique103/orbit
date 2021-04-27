@@ -3,8 +3,12 @@
   <div class="content">
     <span class="user"><%= link_to snapshot.user.name, snapshot.user %></span>
     <span class="content"><%= snapshot.content %></span>
+    <%= image_tag snapshot.display_image if snapshot.image.attached? %>
     <span class="timestamp">
       Posted <%= time_ago_in_words(snapshot.created_at)%> ago.
+      <% if current_user?(snapshot.user) %>
+      <%= link_to 'Delete', snapshot_path(snapshot), method: :delete, data: { confirm: 'Are you sure?'} %>
+      <% end %>
     </span>
   </div>
 </li>

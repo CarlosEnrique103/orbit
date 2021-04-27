@@ -1,0 +1,23 @@
+<%= form_with( model: @snapshot , local: true) do |f| %>
+<%= render 'shared/error_messages', object: f.object %>
+<div class="field">
+  <%= f.text_area :content, placeholder: 'Create a new snapshot...' %>
+</div>
+<span class="image">
+  <%= f.file_field :image, accept: "image/jpeg, image/gif, image/png" %>
+</span>
+<%= f.submit 'Send', class: 'btn btn-primary' %>
+<% end %>
+
+<script type="text/javascript">
+  let snapshot = document.getElementById("snapshot_image");
+  snapshot.addEventListener('change', ({
+    target
+  }) => {
+    let size_in_megabytes = target.files[0].size / 1024 / 1024;
+    console.log(size_in_megabytes);
+    if (size_in_megabytes > 5) {
+      alert('Image cannot execed 5MB. Please choose a smaller file.');
+    }
+  })
+</script>

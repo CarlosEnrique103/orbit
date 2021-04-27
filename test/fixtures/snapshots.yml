@@ -23,3 +23,24 @@ snapshot-<%= n %>:
   user: carlos
 <% end %>
 
+snapshot003:
+  content: 'Built a new user enquiry form.'
+  created_at: <%= 1.day.ago %>
+  user: carlos
+
+snapshot004:
+  content: 'Add new fields to the user application form.'
+  created_at: <%= 2.months.ago %>
+  user: frank
+
+snapshot005:
+  content: 'Improve user authentication.'
+  created_at: <%= 1.hour.ago %>
+  user: mary
+
+snapshot006:
+  content: 'New relay created to handle enquiry form.'
+  created_at: <%= 18.minutes.ago %>
+  user: john
+
+
