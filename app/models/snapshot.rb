@@ -7,8 +7,7 @@ class Snapshot < ApplicationRecord
   validates :user_id, presence: true
   validates :content, presence: true, length: { maximum: 250 }
 
-  validates :image, attached: true,
-                    content_type: { in: %w[image/jpeg image/gif image/png],
+  validates :image, content_type: { in: %w[image/jpeg image/gif image/png],
                                     message: 'Please upload a valid fule type(jpeg, gif, png).' },
                     size: { less_than: 5.megabytes,
                             message: '  Your image exceded 5MB.' }
