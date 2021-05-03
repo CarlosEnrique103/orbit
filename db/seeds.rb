@@ -20,3 +20,10 @@ users = User.order(:created_at).take(5)
   content = Faker::Lorem.sentence
   users.each { |user| user.snapshots.create!(content: content) }
 end
+
+users = User.all
+user = User.first
+followings = users[2..50]
+followers = users[3..40]
+followings.each { |followed| user.follow(followed) }
+followers.each { |follower| follower.follow(user) }
