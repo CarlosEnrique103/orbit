@@ -10,9 +10,10 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
   resources :users do
-    member do 
+    member do
       get :following, :followers
     end
   end
   resources :snapshots, only: %i[create destroy]
+  resources :relationships, only: %i[create destroy]
 end
